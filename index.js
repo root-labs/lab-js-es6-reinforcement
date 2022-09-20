@@ -1,12 +1,14 @@
 // ***************************************************************************
 // Iteration 1 - `for...of` loop
 // ***************************************************************************
+let usersArray = require("./data");
 
-const getFirstNames = arr => {
-  const userFirstNames = [];
+const getFirstNames = (arr) => {
+  let userFirstNames = [];
   for (let user of arr) {
-    // Your code goes here ...
+    userFirstNames.push(user.firstName);
   }
+  return userFirstNames;
 };
 
 getFirstNames(usersArray);
@@ -17,8 +19,12 @@ getFirstNames(usersArray);
 // Iteration 2 - `for...of` loop and ES6 string literals `${}`
 // ***************************************************************************
 
-const getFullNames = arr => {
-  // Your code goes here ...
+const getFullNames = (arr) => {
+  let userFullNames = [];
+  for (let user of arr) {
+    userFullNames.push(`${user.firstName} ${user.lastName}`);
+  }
+  // console.log(userFullNames);
 };
 
 getFullNames(usersArray);
@@ -30,8 +36,18 @@ getFullNames(usersArray);
 // Iteration 3 - ES6 destructuring , for of loop, object literal
 // ***************************************************************************
 
-const getUsersCreditDetails = arr => {
-  // Your code goes here ...
+const getUsersCreditDetails = (arr) => {
+  userCreditDetails = [];
+  for (let elem of arr) {
+    let { firstName, lastName, balance } = elem;
+    let userDetails = {
+      firstName,
+      lastName,
+      balance,
+    };
+    userCreditDetails.push(userDetails);
+  }
+  // console.log(userCreditDetails);
 };
 
 getUsersCreditDetails(usersArray);
@@ -48,8 +64,11 @@ getUsersCreditDetails(usersArray);
 // Iteration 4 - practice `.filter()` method and how to return two elements
 // ***************************************************************************
 
-const genderView = users => {
-  // Your code goes here ...
+const genderView = (users) => {
+  let checkArr = users.filter((el) => {
+    return el.gender == "male";
+  });
+  console.log(checkArr);
 };
 
 genderView(usersArray);
@@ -65,7 +84,7 @@ genderView(usersArray);
 
 const data = genderView(usersArray);
 
-const genderCount = data => {
+const genderCount = (data) => {
   // Your code goes here ...
 };
 
@@ -78,7 +97,7 @@ genderCount(data);
 // Bonus - Iteration 6
 // ***************************************************************************
 
-const promo20 = users => {
+const promo20 = (users) => {
   // Your code goes here ...
 };
 
@@ -90,7 +109,7 @@ const promo20 = users => {
 // Bonus - Iteration 7
 // ***************************************************************************
 
-const addActive = users => {
+const addActive = (users) => {
   // Your code goes here ...
 };
 
